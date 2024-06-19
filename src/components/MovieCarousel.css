@@ -1,0 +1,19 @@
+.Div-poster {
+  display: flex; /* Используем flexbox */
+  justify-content: center; /* Горизонтальное выравнивание по центру */
+  align-items: center; /* Вертикальное выравнивание по центру */
+  height: 100%; /* Задаем высоту, чтобы align-items сработало корректно */
+}
+
+.Img-poster {
+  border-radius: 10px;
+  display: block;
+  width: 90%;
+  height: 600px; /* Вы можете изменить это значение в зависимости от желаемого размера постеров */
+  object-fit: cover;
+}
+
+[data-glow]{
+  border-radius: 10px;
+}
+
