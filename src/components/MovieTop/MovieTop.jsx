@@ -1,8 +1,8 @@
 // MovieTop
 
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import './MovieTop.css';
 
 const MovieTop = () => {
@@ -11,8 +11,8 @@ const MovieTop = () => {
     useEffect(() => {
         const fetchRandomMovies = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/films/random');
-                setMovies(response.data);
+                const response = await axios.get('http://localhost:8080/top/1');
+                setMovies(response.data.items); // Убедитесь, что API возвращает объект с ключом 'items'
             } catch (error) {
                 console.error('Ошибка при получении фильмов:', error);
             }
@@ -20,7 +20,6 @@ const MovieTop = () => {
 
         fetchRandomMovies();
     }, []);
-
 
     return (
         <div>
@@ -33,34 +32,31 @@ const MovieTop = () => {
 
             <div data-glow>
                 <div className="TopContainer">
-                    {movies.map((movie) => (
-                        <div key={movie.kinopoiskId} className="FilmContainer">
-                            <Link to={`/movie/${movie.kinopoiskId}`} state={{movie: movie}}>
-                                <div className="PosterContainer">
-                                    <img
-                                        className="Img-poster"
-                                        src={movie.posterUrl}
-                                        alt={movie.nameRu || movie.nameEn || movie.nameOriginal}
-                                    />
-                                    <div className="MovieInfo">
-                                        <h3>
-                                            {movie.nameRu || movie.nameEn || movie.nameOriginal}
-                                        </h3>
-                                        <p>
-                                            Рейтинг:
-                                            {movie.ratingKinopoisk ? (
-                                                movie.ratingKinopoisk
-                                            ) : movie.ratingImdb ? (
-                                                movie.ratingImdb
-                                            ) : (
-                                                'N/A'
-                                            )}
-                                        </p>
+                    {movies && movies.length > 0 ? (
+                        movies.map((movie) => (
+                            <div key={movie.kinopoiskId} className="FilmContainer">
+                                <Link to={`/movie/${movie.kinopoiskId}`}>
+                                    <div className="PosterContainer">
+                                        <img
+                                            className="Img-poster"
+                                            src={movie.posterUrl}
+                                            alt={movie.nameRu || movie.nameEn || movie.nameOriginal}
+                                        />
+                                        <div className="MovieInfo">
+                                            <h3>
+                                                {movie.nameRu || movie.nameEn || movie.nameOriginal}
+                                            </h3>
+                                            <p>
+                                                Рейтинг: {movie.ratingKinopoisk || movie.ratingImdb || 'N/A'}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </Link>
-                        </div>
-                    ))}
+                                </Link>
+                            </div>
+                        ))
+                    ) : (
+                        <p>Нет доступных фильмов</p>
+                    )}
                 </div>
             </div>
         </div>

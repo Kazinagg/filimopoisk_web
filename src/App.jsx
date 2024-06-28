@@ -3,8 +3,8 @@ import React, { useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Header from './components/Header/Header.jsx';
-import HomePage from "./pages/HomePage.jsx";
-import MoviePage from "./pages/MoviePage.jsx";
+import HomePage from "./pages/HomePage/HomePage.jsx";
+import MoviePage from "./pages/MoviePage/MoviePage.jsx";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

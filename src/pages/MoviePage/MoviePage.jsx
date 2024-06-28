@@ -59,10 +59,12 @@ const MoviePage = () => {
                 <img className="movie-poster" src={posterUrl} alt={nameRu} data-glow />
                 <div className="movie-info" >
                     <h1 className="movie-title" >
-                        {nameRu} ({nameOriginal})
+                        {nameRu}
+                        <br/>
+                        {nameOriginal}
                     </h1>
                     <div className="movie-details" data-glow>
-                        <p><span className="detail-title">Год:</span> {year}</p>
+                        <p><span className="detail-title">Год:</span> {year ? `"${year}"` : '—'}</p>
                         <p><span className="detail-title">Страна:</span> {countries.map(country => country + " ")}</p>
                         <p><span className="detail-title">Жанр:</span> {genres.map(genre => genre + " ")}</p>
                         <p><span className="detail-title">Продолжительность:</span> {filmLength} мин.</p>
@@ -78,7 +80,7 @@ const MoviePage = () => {
             </div>
             <div className="movie-description" data-glow>
                 <h2>Описание</h2>
-                <p>{description}</p>
+                <p>{description ? `"${description}"` : '—'}</p>
             </div>
         </div>
     );
