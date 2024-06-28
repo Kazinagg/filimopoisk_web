@@ -1,6 +1,8 @@
+// HomePage
+
 import React from 'react';
-import MovieCarousel from '../components/MovieCarousel.jsx';
-import MovieTop from '../components/MovieTop.jsx'
+import MovieCarousel from '../components/MovieCarousel/MovieCarousel.jsx';
+import MovieTop from '../components/MovieTop/MovieTop.jsx'
 
 const HomePage = () => {
     return (

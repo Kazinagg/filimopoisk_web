@@ -23,17 +23,19 @@ const MovieCarousel = () => {
     }, []);
 
     const settings = {
+        centerMode: true,
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
+        autoplay: true,
     };
 
     return (
         <div>
             <div data-glow>
-                Фильмы
+                Случайные фильмы
             </div>
             <br/>
             {movies.length > 0 ? (
@@ -41,9 +43,9 @@ const MovieCarousel = () => {
                     <Slider {...settings} >
                         {movies.map((movie) => (
                             <div key={movie.kinopoiskId}>
-                                <Link  to={`/movie/${movie.kinopoiskId}`}>
+                                <Link to={`/movie/${movie.kinopoiskId}`} state={{ movie: movie }}>
                                     <div className="Div-poster" >
-                                        <img className="Img-poster" src={movie.posterUrlPreview} alt={movie.nameRu}/>
+                                        <img className="Img-poster-carousel" src={movie.posterUrl} alt={movie.nameRu}/>
                                     </div>
 
                                 </Link>

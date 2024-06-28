@@ -1,3 +1,4 @@
+/*App.css*/
 #root {
   max-width: 100%;
   max-height: 100%;
@@ -28,7 +29,7 @@ article:last-of-type {
 *,
 *:after,
 *:before {
-  box-sizing: border-box;
+  /*box-sizing: border-box;*/
 }
 body {
   /*display: grid;*/

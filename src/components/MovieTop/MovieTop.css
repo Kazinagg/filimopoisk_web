@@ -1,0 +1,43 @@
+/*.TopContainer{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+.TopContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.FilmContainer {
+    margin: 10px;
+}
+
+.PosterContainer {
+    width: 350px; /* Устанавливаем фиксированную ширину для всех постеров */
+    position: relative; /* Для позиционирования названия и рейтинга */
+}
+
+.Img-poster {
+    /*width: 100%;*/
+    /*height: auto;*/
+    display: block; /* Убираем лишнее пространство под картинкой */
+    border-radius: 10px;
+    /*display: block;*/
+    width: 100%;
+    /*padding-top: 66.67%;*/
+    aspect-ratio: 12 / 16;
+    /*height: 70%; !* Вы можете изменить это значение в зависимости от желаемого размера постеров *!*/
+    object-fit: cover;
+}
+
+.MovieInfo {
+    position: absolute;
+    border-radius: 10px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон для текста */
+    color: white;
+}

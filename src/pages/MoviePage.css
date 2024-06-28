@@ -1,0 +1,78 @@
+/* MoviePage.css */
+.movie-page {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: sans-serif;
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto;
+}
+
+.movie-header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.movie-poster {
+    width: 50%;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-title {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.movie-details {
+    margin-bottom: 15px;
+}
+
+.movie-details p {
+    margin-bottom: 8px;
+}
+
+.detail-title {
+    font-weight: bold;
+}
+
+.movie-ratings {
+    margin-bottom: 15px;
+}
+
+.movie-ratings p {
+    margin-bottom: 5px;
+}
+
+.rating-value {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.movie-link {
+    padding: 8px 12px;
+    background-color: #007bff; /* Example color */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.movie-link:hover {
+    background-color: #0056b3; /* Example darker color */
+}
+
+.movie-description {
+    /* Style the description area as needed */
+}
+
+.movie-description h2 {
+    margin-bottom: 10px;
+}

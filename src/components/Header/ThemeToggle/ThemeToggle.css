@@ -1,0 +1,184 @@
+body.dark-theme{
+    background: hsl(0 0% 4%); /* Или любой другой темный цвет */
+    color: #ffffff; /* Или любой другой светлый цвет */
+}
+
+body.dark-theme a{
+    color: #ffffff; /* Или любой другой светлый цвет */
+}
+
+body.dark-theme .movie-search ul{
+    background: hsl(0 0% 4%);
+}
+
+
+
+body.light-theme{
+    background-color: #ffffff;
+    color: hsl(0 0% 4%);
+}
+
+body.light-theme a{
+    color: hsl(0 0% 4%);
+}
+
+body.light-theme .movie-search ul{
+    background: #ffffff;
+}
+
+
+.ThemeToggle{
+    /*padding: 10px;*/
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+#toggle_checkbox {
+    display: none;
+}
+
+label {
+    display: block;
+    /*position: absolute;*/
+    top: 100px;
+    right: 0;
+    left: 0;
+    width: 116px;
+    height: 56px;
+    /*margin: 0 auto;*/
+    /*background-color: hsl(0 0% 60% / 0.12);*/
+    border-radius: 10px;
+    transform: translateY(0%);
+    cursor: pointer;
+    transition: 0.3s ease background-color;
+    overflow: hidden;
+}
+
+#star {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    transform: scale(1);
+    border-radius: 50%;
+    transition: 0.3s ease top, 0.3s ease left, 0.3s ease transform,
+    0.3s ease background-color;
+    z-index: 1;
+}
+
+#star-1 {
+    position: absolute;
+    transform: rotateZ(35deg);
+    /*transform-origin: 20px;*/
+    /*top: 13px;*/
+    left: -130px;
+    top: -10px;
+}
+
+#star-2 {
+    position: absolute;
+    transform: rotateZ(35deg);
+    transform-origin: 20px;
+    left: -90px;
+    top: 50px;
+
+}
+
+#star-3 {
+    position: absolute;
+    transform: rotateZ(45deg);
+    transform-origin: 20px;
+    left: -190px;
+    top: -30px;
+
+}
+
+#star-4 {
+    position: absolute;
+    transform: rotateZ(55deg);
+    transform-origin: 20px;
+    left: -220px;
+    top: 35px;
+}
+
+#star-5 {
+    position: absolute;
+    transform: rotateZ(65deg);
+    transform-origin: 20px;
+    left: -160px;
+    top: 70px;
+    /*width: 10px;*/
+
+}
+
+#star-6 {
+    position: absolute;
+    transform: rotateZ(75deg);
+    transform-origin: 20px;
+    left: -60px;
+    top: -10px;
+}
+
+.star {
+    top: 0;
+    left: -60px;
+    font-size: 54px;
+    width: 30px;
+    line-height: 30px;
+    color: #fff;
+    transition: 0.3s ease color;
+}
+
+#moon {
+    position: absolute;
+    bottom: -52px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.3s ease bottom;
+}
+
+#moon:before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: -17px;
+    width: 40px;
+    height: 40px;
+    background-color: hsl(0 0% 60% / 0.12);
+    border-radius: 50%;
+    transition: 0.3s ease background-color;
+}
+
+#toggle_checkbox:checked + label {
+    /*background-color: hsl(0 0% 60% / 0.12);*/
+}
+
+#toggle_checkbox:checked + label #star {
+    top: 3px;
+    left: 64px;
+    transform: scale(0.3);
+    background-color: yellow;
+}
+
+#toggle_checkbox:checked + label .star {
+    color: yellow;
+}
+
+#toggle_checkbox:checked + label #moon {
+    bottom: 8px;
+}
+
+#toggle_checkbox:checked + label #moon:before {
+    background-color: #1b1b1b;
+}

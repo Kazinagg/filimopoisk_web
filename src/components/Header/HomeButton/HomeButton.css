@@ -1,0 +1,10 @@
+.GoToStartButton{
+    padding: 10px;
+}
+
+.GoToStartButton_Conteiner{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

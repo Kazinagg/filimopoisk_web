@@ -5,7 +5,7 @@
   height: 100%; /* Задаем высоту, чтобы align-items сработало корректно */
 }
 
-.Img-poster {
+.Img-poster-carousel {
   border-radius: 10px;
   display: block;
   width: 90%;

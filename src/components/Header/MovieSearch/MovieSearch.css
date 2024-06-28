@@ -1,0 +1,68 @@
+/* Общие стили */
+/*body {*/
+/*    font-family: Arial, sans-serif;*/
+/*    background-color: #f4f4f4;*/
+/*}*/
+
+a {
+    text-decoration: none;
+    /*color: #333;*/
+}
+
+/* Стили для компонента поиска */
+.movie-search {
+    position: relative;
+    width: 40%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-search input {
+    width: 100%;
+    padding: 10px 15px;
+    /*border: 1px solid #ccc;*/
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+/* Эффект "свечения" */
+.movie-search input[data-glow]:focus {
+    /*box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);*/
+}
+
+/* Список с результатами поиска */
+.movie-search ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border-radius: 10px;
+    /*background-color: #fff;*/
+    /*border: 1px solid #ccc;*/
+    /*border-radius: 5px;*/
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+    z-index: 10; /* Помещаем список поверх остального контента */
+}
+
+.movie-search ul li {
+    padding: 10px 15px;
+    margin: 10px;
+    /*border-bottom: 1px solid #eee;*/
+    display: flex;
+    align-items: center; /* Выравниваем по вертикали */
+}
+
+/* Эффект "свечения" для элементов списка */
+.movie-search ul li[data-glow]:hover {
+    background-color: #f0f0f030;
+}
+
+.movie-search ul li img {
+    margin-right: 10px;
+    border-radius: 3px; /* Скругляем углы изображения */
+}
