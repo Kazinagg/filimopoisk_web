@@ -12,7 +12,7 @@ const MovieCarousel = () => {
     useEffect(() => {
         const fetchRandomMovies = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/films/random');
+                const response = await axios.get('http://192.168.3.9:8080/films/random');
                 setMovies(response.data);
             } catch (error) {
                 console.error('Ошибка при получении фильмов:', error);

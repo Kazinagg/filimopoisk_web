@@ -36,7 +36,7 @@ const MovieSearch = () => {
         clearTimeout(timer);
         if (value.length > 2) { // Делаем запрос, только если введено больше 2 символов
             const newTimer = setTimeout(() => {
-                fetch(`http://localhost:8080/search/by-keyword?keyword=${value}`)
+                fetch(`http://192.168.3.9:8080/search/by-keyword?keyword=${value}`)
                     .then(res => res.json())
                     .then(data => setSuggestions(data));
             }, 2000);
@@ -48,7 +48,7 @@ const MovieSearch = () => {
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter' && searchTerm.length > 2) {
-            fetch(`http://localhost:8080/search/by-keyword?keyword=${searchTerm}`)
+            fetch(`http://192.168.3.9:8080/search/by-keyword?keyword=${searchTerm}`)
                 .then(res => res.json())
                 .then(data => setSuggestions(data));
         }

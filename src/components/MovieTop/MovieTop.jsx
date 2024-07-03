@@ -11,7 +11,7 @@ const MovieTop = () => {
     useEffect(() => {
         const fetchRandomMovies = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/top/1');
+                const response = await axios.get('http://192.168.3.9:8080/top/1');
                 setMovies(response.data.items); // Убедитесь, что API возвращает объект с ключом 'items'
             } catch (error) {
                 console.error('Ошибка при получении фильмов:', error);

@@ -24,7 +24,7 @@ const Profile = () => {
                     return;
                 }
 
-                const response = await fetch('http://localhost:8081/marked/get', {
+                const response = await fetch('http://192.168.3.9:8081/marked/get', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const Profile = () => {
             try {
                 const responses = await Promise.all(
                     films.map(film =>
-                        axios.get(`http://localhost:8080/films/id/${film.kinopoiskId}`)
+                        axios.get(`http://192.168.3.9:8080/films/id/${film.kinopoiskId}`)
                     )
                 );
                 setMovies(responses.map(response => response.data)); // Обновляем состояние данными фильмов

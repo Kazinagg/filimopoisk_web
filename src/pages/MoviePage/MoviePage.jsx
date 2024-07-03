@@ -16,6 +16,7 @@ const MoviePage = () => {
     // const history = useHistory();
     const { id } = useParams();
     const [movie, setMovie] = useState(location.state?.movie);
+    const [isMarked, setIsMarked] = useState(false);
 
     // Хук useEffect для выполнения побочных эффектов (запрос данных)
     useEffect(() => {
@@ -23,7 +24,7 @@ const MoviePage = () => {
         // Функция для получения данных о фильме по id
         const fetchMovie = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/films/id/${id}`);
+                const response = await axios.get(`http://192.168.3.9:8080/films/id/${id}`);
                 setMovie(response.data); // Обновляем состояние данными фильма
             } catch (error) {
                 console.error('Ошибка при получении фильма:', error);
@@ -37,9 +38,16 @@ const MoviePage = () => {
         }
     }, [id, movie]); // Запускаем эффект при изменении id или movie
 
+
+    useEffect(() => {
+        if (isLoggedIn && !movie) {
+            getMarkedFilms();
+        }
+    }, [id, movie, isLoggedIn]);
+
     const addMarkedFilm = async (typeMarked) => {
         try {
-            const response = await axios.post('http://localhost:8081/marked/add', {
+            const response = await axios.post('http://192.168.3.9:8081/marked/add', {
                 kinopoiskId: id,
                 typeMarked: typeMarked
             }, {
@@ -51,6 +59,42 @@ const MoviePage = () => {
             alert(response.data); // Или другой способ уведомления пользователя
         } catch (error) {
             console.error('Ошибка при добавлении фильма в избранное:', error);
+        }
+        setIsMarked(true);
+    };
+
+    const getMarkedFilms = async () => {
+        try {
+            const response = await axios.post('http://192.168.3.9:8081/marked/get', {}, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            });
+            // Проверяем, находится ли текущий фильм в списке отмеченных
+            const isFilmMarked = response.data.some(markedFilm => markedFilm.kinopoiskId == id);
+            console.log(id);
+            console.log(response);
+
+            setIsMarked(isFilmMarked);
+        } catch (error) {
+            console.error('Ошибка при получении списка отмеченных фильмов:', error);
+        }
+    };
+
+    const removeMarkedFilm = async () => {
+        try {
+            const response = await axios.post('http://192.168.3.9:8081/marked/remove', {
+                kinopoiskId: id
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            });
+            setIsMarked(false);
+            alert(response.data); // Или другой способ уведомления пользователя
+        } catch (error) {
+            console.error('Ошибка при удалении фильма из коллекции:', error);
         }
     };
 
@@ -79,16 +123,24 @@ const MoviePage = () => {
     // Возвращаем JSX для отображения информации о фильме
     return (
         <div className="movie-page">
-            {isLoggedIn ? (
-                <div className="movie-actions">
-                    <button data-glow onClick={() => addMarkedFilm(MarkTypes.FAVORITE)}>Добавить в Избранное</button>
-                    <button data-glow onClick={() => addMarkedFilm(MarkTypes.WATCH)}>Смотрю</button>
-                    <button data-glow onClick={() => addMarkedFilm(MarkTypes.DROPPED)}>Брошено</button>
-                </div>
-            ) : (
-                <div>
-                </div>
-            )}
+            {/*{console.log(isLoggedIn)}*/}
+            {/*{console.log(isMarked)}*/}
+
+            { isLoggedIn ? (
+                isMarked ? (
+                    <button data-glow onClick={removeMarkedFilm}>Удалить из коллекции</button>
+                ) : (
+                    <div className="movie-actions">
+                        <button data-glow onClick={() => addMarkedFilm(MarkTypes.FAVORITE)}>Добавить в Избранное</button>
+                        <button data-glow onClick={() => addMarkedFilm(MarkTypes.WATCH)}>Смотрю</button>
+                        <button data-glow onClick={() => addMarkedFilm(MarkTypes.DROPPED)}>Брошено</button>
+                    </div>
+                )
+                ):(
+                    <div>
+
+                    </div>
+                )}
             <div className="movie-header">
                 <img className="movie-poster" src={posterUrl} alt={nameRu} data-glow/>
                 <div className="movie-info">
