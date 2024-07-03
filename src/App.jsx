@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header.jsx';
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import MoviePage from "./pages/MoviePage/MoviePage.jsx";
+import AuthForm from "./pages/AuthForm/AuthForm.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -70,6 +72,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/movie/:id" element={<MoviePage />} />
+                    <Route path="/login" element={<AuthForm />} />
+                    <Route path="/profile" element={<Profile />} />
                 </Routes>
             </div>
         </Router>

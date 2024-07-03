@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import "./Header.css"
 import ThemeToggle from "./ThemeToggle/ThemeToggle.jsx"
 import HomeButton from "./HomeButton/HomeButton.jsx"
+import ProfileButton from "./ProfileButton/ProfileButton.jsx"
 
 
 const Header = () => {
@@ -12,7 +13,9 @@ const Header = () => {
             <div className="Header" >
                 <HomeButton/>
                 <MovieSearch/>
+                <ProfileButton/>
                 <ThemeToggle/>
+
             </div>
             <br/>
         </div>

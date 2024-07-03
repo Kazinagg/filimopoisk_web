@@ -7,11 +7,13 @@ const HomeButton = () => {
         <div>
             <div className="GoToStartButton_Conteiner">
                 <div>
-                    <div data-glow className="GoToStartButton">
-                        <Link to={"/"}>
+
+                    <Link to={"/"}>
+                        <button data-glow>
                             Главная
-                        </Link>
-                    </div>
+                        </button>
+                    </Link>
+
                 </div>
             </div>
         </div>
